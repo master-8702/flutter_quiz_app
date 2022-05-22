@@ -1,8 +1,11 @@
+// this class will be the blue print for the questions
+//it's created for project-organizational(cleanness) purpose
+
 class Question {
   String questionText = "";
-  bool answer = true;
+  bool questionAnswer = true;
   Question(String question, bool answer) {
-    this.questionText = question;
-    this.answer = answer;
+    questionText = question;
+    questionAnswer = answer;
   }
 }

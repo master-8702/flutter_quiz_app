@@ -1,6 +1,11 @@
 import 'package:quiz_app/question.dart';
 
+//this class is used to hold the question's list
+// we separately put this class for cleanness purpose
+
 class QuestionsList {
+  //since the class itself will handle the current question number and resetting it
+  // the following variables are needed
   int _currentQuestionNumber = 0;
   int totalQuestionNumber = 0;
 
@@ -33,26 +38,40 @@ class QuestionsList {
     Question(">> is used for output.", false),
   ];
 
+  //this function will fetch the next question for whomever asks and increment the current question number counter by one
+
   void nextQuestion() {
     if (_currentQuestionNumber < (totalQuestionNumber - 1)) {
       _currentQuestionNumber++;
     }
   }
 
+  //this is just a getter method for the class(questions_list) questions
   String getQuestion() {
     return _myQuestions[_currentQuestionNumber].questionText;
   }
 
-  bool getAnswer(int questionNumber) {
-    return _myQuestions[_currentQuestionNumber].answer;
+  //this is just a getter method for the class(questions_list) answers
+
+  bool getAnswer() {
+    return _myQuestions[_currentQuestionNumber].questionAnswer;
   }
 
+  //another getter method for total questions number
   int getTotalquestionsNumber() {
     totalQuestionNumber = _myQuestions.length;
     return totalQuestionNumber;
   }
 
+  //another getter method for current questions number
+
   int getCurrentQuestionNumber() {
     return _currentQuestionNumber;
+  }
+
+  //a method for resetting the current question number counter
+
+  void resetCurrentQuestionNumber() {
+    _currentQuestionNumber = 0;
   }
 }
